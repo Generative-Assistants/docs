@@ -23,7 +23,7 @@ You can interact with Sentius Copilot+ application manually by:
 
 ## Unattended Mode
 
-You can integrate your Sentius Copilot+ application to execute browser automation tasks into your existing application by obtaining your API key and using it to call [Browser Agent API](../api/browser-agent-api.md).
+You can integrate your Sentius Copilot+ application to execute browser automation tasks into your existing application by obtaining your API key and using it to call [Browser Agent API](../../api/browser-agent-api.md).
 
 # Examples
 

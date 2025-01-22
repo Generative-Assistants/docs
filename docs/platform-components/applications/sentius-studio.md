@@ -6,7 +6,7 @@ Sentius Studio is a native desktop application that allows creation, editing, te
 
 To connect Sentius Studio to Sentius Teach & Repeat Platform, you currently need to: 
 * have a **developer role**, 
-* download [Sentius Copilot+](platform-components/applications/sentius-copilot-plus.md), 
+* download [Sentius Copilot+](sentius-copilot-plus.md), 
 * obtain API key in its settings,
 * and then set it to the **Browser Agent API key** field in the Connected Services window that you can open by going to Settings --> Options --> Configure (Connected Services).
 
@@ -32,12 +32,12 @@ While **Projects** can be seen as an equivalent to the zoomable space provided b
 * **Graph** is a graph representation of a number of entities interconnected with each other; you can use **Graphs** to explore connections between entities and save those explorations for later view
 
 ## Agents, Saved Instructions, and Workflows
-* **Agents** - each supported **Agent** from [Sentius Agents](platform-components/agents.md) is represented by its own **Kind** in Sentius Studio:
-  * [Browser Agent](platform-components/agents/browser-agent.md)
-  * [OpenAPI Agent](platform-components/agents/openapi-agent.md)
-  * [Prompt Agent](platform-components/agents/prompt-agent.md)
+* **Agents** - each supported **Agent** from [Sentius Agents](../agents.md) is represented by its own **Kind** in Sentius Studio:
+  * [Browser Agent](../agents/browser-agent.md)
+  * [OpenAPI Agent](../agents/openapi-agent.md)
+  * [Prompt Agent](../agents/prompt-agent.md)
 * **Workflows** - when you want to combine one or more **agents** into a multi-step **agentic workflow**, you can do that by generating a workflow using Sentius Process Designer's Copilot (coming later in 2025), by editing it, or by creating one manually from scratch.
-* **Saved Instructions** - while the work inside the worklfow is performed by **agents**, you need to provide instructions to the [Workflow Engine](platform-components/services/workflow-engine.md) that explain it how that work should be done by the each given **agent**.
+* **Saved Instructions** - while the work inside the worklfow is performed by **agents**, you need to provide instructions to the [Workflow Engine](../services/workflow-engine.md) that explain it how that work should be done by the each given **agent**.
 
 # Examples
 
