@@ -1,8 +1,8 @@
 # Tasks and Skills APIs
 
-## Creating Skill
+## Recording Skill
 
-To create a Skill, In Sentius Copilot Application go to "Skills" tab and click "Record" button in the upper right corner.
+To create a Skill, In Sentius Copilot+ Application go to "Skills" tab and click "Record" button in the upper right corner.
 One can copy ID of the Skill by clicking on "..." button of the corresponding Skill, click "Copy ID".
 
 ## Retrieving Skills
