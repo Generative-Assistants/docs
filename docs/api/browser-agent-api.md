@@ -12,7 +12,7 @@ To integrate **browser agent** into your application directly (without Workflow 
 1. Create new [Dialog Session API](dialog-sessions.md)
 2. Chat with **browser agent** with a prompt (see [Dialog Session API](dialog-sessions.md))
 
-If you want to specify an ID of a **Saved Instruction** (also called "Skills" in the application), copy it from the saved instruction properties in the "Skills" section, and then specify it, as shown in the [Dialog Session API](api/dialog-sessions.md).
+If you want to specify an ID of a **Saved Instruction** (also called "Skills" in the application), copy it from the saved instruction properties in the "Skills" section, and then specify it, as shown in the [Dialog Session API](dialog-sessions.md).
 
 ## Tasks
 
