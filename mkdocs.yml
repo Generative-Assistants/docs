@@ -47,6 +47,6 @@ nav:
     - Browser Agent: 
       - Overview: api/browser-agent-api.md
       - Dialog Sessions: api/dialog-sessions.md
-      - Tasks and instructions: api/tasks.md
+      - Skills: api/skills.md
     - Workflow Engine:
       - Overview: api/workflow-engine-api.md
