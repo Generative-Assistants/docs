@@ -50,10 +50,12 @@ OpenAPI specifications are used to define available API integrations. Each OpenA
 
 #### OpenAPI configuration example
 
+This is an example of OpenAPI configuration for the local server using 8001 port.
+
 ```json
 {
   "id": "upload_api",
-  "address": "http://localhost:8000/openapi.json"
+  "address": "http://localhost:8001/openapi.json"
 }
 ```
 
@@ -74,14 +76,18 @@ TODO: add step types
 
 ## Creating workflows
 
+This section contains example requests how to validate, submit and run workflows. 
+
+In the next Section Example, one may find an **example of workflow configuration**.
+
 ### Pre-requisites
 
-We assume you have already created a dialog session and have an active session `id`. If not, please refer to the
+We assume you have already created a dialog session and have an active session `dialog_session_id`. If not, please refer to the
 [Dialog Sessions API](dialog-sessions.md) section.
 
 ### Validating a workflow
 
-To check that created workflow structure is correct, run following command:
+To check that created workflow structure is correct, run the following command:
 
 Curl
 
@@ -104,7 +110,7 @@ Python
 
 ### Submitting a workflow
 
-Before using workflow you must save it. After saving, you will need to save `id` field from the response - it will be
+Before using workflow you must submit it to Sentius API. After submitting, you will need to save `id` field from the response - it will be
 used later in workflow inference.
 
 === "Curl"
@@ -123,9 +129,15 @@ used later in workflow inference.
         url = f"https://api.sentius.ai/workflows"
         params = {"api_key": "your_api_key"}
         response = requests.post(url, params=params, json={"config": <YOUR_WORKFLOW_CONFIG>})
+        workflow_id = response.json()["id"]
+        workflow_id
         ```
 
 ### Using submitted workflow
+
+Running workflow is connected to the particular dialog session, workflow `id` and the input data for the workflow. 
+Input data must follow the input schema from the workflow configuration.
+To run workflow use the following command:
 
 Curl
 
@@ -143,19 +155,21 @@ Python
     import requests
     
     url = f"https://api.sentius.ai/dialog_sessions/{dialog_session_id}/run_workflow"
-    params = {"api_key": "<YOUR_API_KEY>", "workflow_id": <SAVED_WORKFLOW_ID>}
+    params = {"api_key": "<YOUR_API_KEY>", "workflow_id": workflow_id}
     response = requests.post(url, params=params, json={"data": <YOUR_DATA>})
 ```
 
 ## Example
 
-Following config runs two actions: at first, it downloads file from Google Drive, then uploads this file to server.
+Following workflow configuration runs two actions: it downloads the requested file from Google Drive, then uploads this file to the local server.
+To perform the second step, one should run the local server for file uploading, or replace it with custom server 
+(e.g., replace OpenAPI schema in workflow configuration).
 
 ### Server
 
-Create virtual environment, activate it and run `pip install uvicorn==0.34.0 fastapi==0.115.7 fastapi==0.115.7`.
+Create virtual environment, activate it and run `pip install uvicorn==0.34.0 fastapi==0.115.7 python-multipart==0.0.20`.
 
-Save following code as `main.py` and start this mock server with `uvicorn main:app --port=8001`
+Save following code as `main.py` and start this mock server with `python -m uvicorn main:app --port=8001`
 
 ```python
 import json
@@ -203,14 +217,14 @@ async def upload_report(
 
 ### Workflow Config
 
-**Don't forget to put your api key value to this config before uploading.**
+**Don't forget to put your Sentius API key value instead of `<YOUR_API_KEY>` to this config before uploading.**
 
 ```json
 
 {
   "sentius_workflow_engine_schema_version": "0.60",
-  "title": "Shipping Email Processing Workflow",
-  "description": "This is a workflow that processes an email and forms a basic itinerary",
+  "title": "File Processing Workflow",
+  "description": "This is a workflow that downloads a file from Google Drive and uploads it to a server",
   "authors": "Daniel Kornev, Fedor Ignatov",
   "openapi": [
     {
@@ -221,10 +235,10 @@ async def upload_report(
   "input_schema": "{\"properties\": {\"filename\": {\"type\": \"string\"}, \"fileKey\": {\"type\": \"string\"}, \"accountId\": {\"type\": \"string\"}, \"testId\": {\"type\": \"string\"}, \"Authorization\": {\"type\": \"string\"}}, \"required\": [\"filename\", \"fileKey\", \"accountId\", \"testId\", \"Authorization\"], \"type\": \"object\", \"additionalProperties\": false}",
   "steps": [
     {
-      "id": "download_policy_from_google_drive",
-      "title": "Download Policy from Google Drive",
+      "id": "download_file_from_google_drive",
+      "title": "Download File from Google Drive",
       "kind": "sentius.kinds.agents.browseragent",
-      "description": "Download policy file from my Google Drive",
+      "description": "Download file from my Google Drive",
       "semantic_action": {
         "semantic_action_type": "browseragent",
         "structured_output_schema": "{\"properties\": {\"text\": {\"type\": \"string\"}, \"timestamp\": {\"type\": \"string\"}, \"task\": {\"type\": \"object\", \"properties\": {\"id\": {\"type\": \"integer\"}, \"dialog_session_id\": {\"type\": \"integer\"}, \"text\": {\"type\": \"string\"}, \"agent_task_id\": {\"type\": \"string\"}, \"state\": {\"type\": \"string\"}, \"is_successful\": {\"type\": \"boolean\"}, \"date_created\": {\"type\": \"string\"}, \"date_finished\": {\"type\": \"string\"}}, \"required\": [\"id\", \"dialog_session_id\", \"text\", \"agent_task_id\", \"state\", \"date_created\", \"date_finished\"]}, \"respond_buttons\": {\"type\": \"null\"}, \"task_duration_comment\": {\"type\": \"null\"}, \"attributes\": {\"type\": \"object\", \"properties\": {\"task_id\": {\"type\": \"string\"}, \"task_state\": {\"type\": \"string\"}, \"task_text\": {\"type\": \"string\"}, \"message_type\": {\"type\": \"string\"}, \"temporary_attributes\": {\"type\": \"object\", \"properties\": {\"downloadedFileName\": {\"type\": \"string\"}, \"downloadedFilePath\": {\"type\": \"string\"}}, \"required\": [\"downloadedFileName\", \"downloadedFilePath\"]}, \"finish_datetime\": {\"type\": \"string\"}, \"task_user_eval\": {\"type\": \"null\"}, \"respond_buttons\": {\"type\": \"null\"}, \"task_duration_comment\": {\"type\": \"null\"}, \"task_history_update\": {\"type\": \"null\"}}, \"required\": [\"task_id\", \"task_state\", \"task_text\", \"message_type\", \"temporary_attributes\", \"finish_datetime\"]}}, \"required\": [\"text\", \"timestamp\", \"task\", \"attributes\"], \"type\": \"object\", \"additionalProperties\": false}",
@@ -254,9 +268,9 @@ async def upload_report(
       ]
     },
     {
-      "id": "email_preprocessing",
-      "title": "Email Preprocessing",
-      "description": "Preprocess the email to form basic itinerary",
+      "id": "file_uploading",
+      "title": "File Uploading to Server",
+      "description": "Uploads file to a server given via OpenAPI schema",
       "kind": "sentius.kinds.agents.openapiagent",
       "semantic_action": {
         "semantic_action_type": "openapi.upload",
@@ -270,7 +284,7 @@ async def upload_report(
         ]
       },
       "dependsOn": [
-        "download_policy_from_google_drive"
+        "download_file_from_google_drive"
       ],
       "input_mapping": [
         {
@@ -327,11 +341,15 @@ async def upload_report(
 
 Use following data to run workflow.
 
-**Don't forget to change filename value**
+**Don't forget to change filename value**. Make sure you have this file on Google Drive 
+(if the extension of the file is invisible on Google Drive, write the filename without the extension).
+Do not change `accountId`, `testId`, `isReady`. 
+Change `Authorization` to the authorization token if you change the local server for data uploading to a custom one, 
+and it requires authorization.
 
 ```json
 {
-    "filename": "pavlov.txt",
+    "filename": "<FILE NAME FROM GOOGLE DRIVE>",
     "fileKey": "file",
     "accountId": "account_id",
     "testId": "test_id",
