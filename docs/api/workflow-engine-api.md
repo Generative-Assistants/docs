@@ -331,12 +331,11 @@ Use following data to run workflow.
 
 ```json
 {
-  "data": {
     "filename": "pavlov.txt",
     "fileKey": "file",
     "accountId": "account_id",
     "testId": "test_id",
     "Authorization": "Bearer <token>",
-    "isReady": false}
+    "isReady": false
 }
 ```
