@@ -110,7 +110,7 @@ used later in workflow inference.
 === "Curl"
 
     ```bash
-    curl -X POST "https://api.sentius.ai/dialog_sessions/{dialog_session_id}/workflows?api_key=<YOUR_API_KEY>" \
+    curl -X POST "https://api.sentius.ai/workflows?api_key=<YOUR_API_KEY>" \
             -H "Content-Type: application/json"
             -d '<YOUR_WORKFLOW_CONFIG>'
     ```
@@ -120,7 +120,7 @@ used later in workflow inference.
         ```python
         import requests
     
-        url = f"https://api.sentius.ai/dialog_sessions/{dialog_session_id}/workflows"
+        url = f"https://api.sentius.ai/workflows"
         params = {"api_key": "your_api_key"}
         response = requests.post(url, params=params, json=<YOUR_WORKFLOW_CONFIG>)
         ```
