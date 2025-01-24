@@ -167,12 +167,12 @@ To perform the second step, one should run the local server for file uploading, 
 
 ### Server
 
-Create virtual environment, activate it and run `pip install uvicorn==0.34.0 fastapi==0.115.7 python-multipart==0.0.20`.
+Create virtual environment, activate it and run `pip install uvicorn==0.34.0 fastapi==0.115.7 python-multipart==0.0.20`
+(requirements are written for Python 3.12).
 
 Save following code as `main.py` and start this mock server with `python -m uvicorn main:app --port=8001`
 
 ```python
-import json
 import logging
 
 from fastapi import FastAPI, File, Form, UploadFile, Request
@@ -190,6 +190,7 @@ app = FastAPI()
 
 @app.post("/v1/reports/upload", status_code=201)
 async def upload_report(
+        request: Request,
         file: UploadFile = File(...),
         accountId: str = Form(...),
         fileName: str = Form(...),
@@ -197,22 +198,20 @@ async def upload_report(
         isReady: bool = Form(...)
 ):
     logger.info("Received file upload request")
-    logger.info(json.dumps(
-        {
-            'file_details': {
-                'filename': file.filename,
-                'size': file.size,
-                'content_type': file.content_type
-            },
-            'metadata': {
-                'account_id': accountId,
-                'file_name': fileName,
-                'test_id': testId,
-                'is_ready': isReady,
-            },
-        }, indent=2)
-    )
-
+    return {
+        'file_details': {
+            'filename': file.filename,
+            'size': file.size,
+            'content_type': file.content_type
+        },
+        'metadata': {
+            'account_id': accountId,
+            'file_name': fileName,
+            'test_id': testId,
+            'is_ready': isReady,
+            'authorization_header': request.headers.get('authorization'),
+        },
+    }
 ```
 
 ### Workflow Config
