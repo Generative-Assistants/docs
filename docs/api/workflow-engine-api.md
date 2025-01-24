@@ -76,7 +76,7 @@ TODO: add step types
 
 ## Creating workflows
 
-This section contains example requests how to validate, submit and run workflows. 
+This section contains instruction requests to validate, submit and run workflows. 
 
 In the next Section Example, one may find an **example of workflow configuration**.
 
