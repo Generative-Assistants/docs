@@ -72,9 +72,252 @@ The input schema uses JSON Schema format to define the expected input structure.
 
 ### Step Types
 
-TODO: add step types
+#### Common Fields
 
-## Creating workflows
+Each step must have the following fields:
+
+- `id`: An unique name of the step
+- `title`: Step title
+- `kind`: Type of the step
+- `description`: Description of the step
+- `semantic_action`: Schema defining step actions
+- `dependsOn`: List of previous teps ids
+
+#### Loop Step Type
+
+Used to loop over fields in workflow run context.
+
+- `kind`: Must be `sentius.kinds.agents.loop`
+- `sub_steps`: List of the steps schemas that executed in loop
+- `semantic_action`: LoopSemanticAction schema
+
+**LoopSemanticAction**:
+- `semantic_action_type`: Must be `loop`
+- `self`: Optional field, describing the field of the workflow run state, that should be used as context
+- `loop_over`: Field from the context that is used for iteration. Elements of this list will be contexts of sub_steps
+
+#### Loop Example
+
+```json
+{
+  "id": "step_id",
+  "title": "Step Title",
+  "kind": "sentius.kinds.agents.loop",
+  "description": "Step Description",
+  "semantic_action": {
+    "semantic_action_type": "loop",
+    "self": null,
+    "loop_over": "field_to_loop_over"
+  },
+  "dependsOn": [],
+  "sub_steps": [
+    {
+      "id": "step_id",
+      "title": "Step Title",
+      "kind": "sentius.kinds.agents.openapiagent",
+      "description": "Step Description",
+      "semantic_action": {
+        "semantic_action_type": "openapi",
+        "openapi_path": "/endpoint",
+        "output_schema": "#/components/schemas/OutputSchema",
+        "openapi_id": "testserver_openapi"
+      },
+      "dependsOn": [],
+      "input_mapping": [
+        {
+          "source": "$context$.field_name",
+          "target": "$input_schema$.field_name",
+          "type": null
+        }
+      ],
+      "output_mapping": [
+        {
+          "source": "$context$.field_name",
+          "target": "$input_schema$.field_name"
+        }
+      ]
+    }
+  ]
+}
+```
+
+#### PromptAgent Step Type
+
+Used to send requests to a LLM using structured json output mode of the LLM.
+
+- `kind`: Must be `sentius.kinds.agents.promptagent`
+- `semantic_action`: PromptSemanticAction schema
+- `input_mapping`: List of Mapping schemas
+- `output_mapping`: List of Mapping schemas
+
+**PromptSemanticAction**
+- `semantic_action_type`: Must be `prompt`
+- `system_prompt`: General prompt for LLM
+- `prompt`: Specific prompt to LLM that could be use values from the input mappings
+- `structured_output_schema`: The json schema of the expected output
+- `structured_output_schema_name`: Name of the output schema
+
+**Mapping**
+- `source`: What field of the context should we use as input to step
+- `target`: Name of the key, which uses `source` as value
+
+#### PromptAgent Example
+
+```json
+{
+  "id": "step_id",
+  "title": "Step Title",
+  "kind": "sentius.kinds.agents.promptagent",
+  "description": "Step Description",
+  "semantic_action": {
+    "semantic_action_type": "prompt",
+    "system_prompt": "You are a virtual agent that is an expert in geography.",
+    "prompt": "Your task is to transform Country name to capital. Input: country: %country%.",
+    "structured_output_schema": "{\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}}, \"required\": [\"name\"], \"additionalProperties\": false}",
+    "structured_output_schema_name": "PromptOutput"
+  },
+  "dependsOn": [],
+  "input_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name"
+    }
+  ],
+  "output_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name"
+    }
+  ]
+}
+```
+
+#### BrowserAgent Step Type
+
+Used for requests to Sentius Browser Agent
+
+- `kind`: Must be `sentius.kinds.agents.browseragent`
+- `semantic_action`: BrowserAgentSemanticAction schema
+
+**BrowserAgentSemanticAction**
+- `semantic_action_type`: Must be `browseragent`
+- `instruction_template`: Request to Browser Agent on natural language
+- `structured_output_schema`: Schema of the expected output
+- `pods`: List of the Pod schemas that define on which instance of Browser Agent action should be executed
+- `instruction_id`: Optional field defining id of the instruction that should be used
+- `input_mapping`: List of Mapping schemas
+- `output_mapping`: List of Mapping schemas
+
+**Pod**
+- `api_key`: Api key of the browser agent that should be used for step execution
+
+**Mapping**
+- `source`: What field of the context should we use as input to step
+- `target`: Name of the key, which uses `source` as value
+
+#### Browser Agent Example
+
+```json
+{
+  "id": "step_id",
+  "title": "Step Title",
+  "kind": "sentius.kinds.agents.browseragent",
+  "description": "Step Description",
+  "semantic_action": {
+    "semantic_action_type": "browseragent",
+    "instruction_template": "Check the severe weather conditions for the itinerary using Sentius Browser Agent",
+    "structured_output_schema": "{\"type\": \"object\", \"properties\": {\"ba_int_field\": {\"type\": \"integer\"}, \"ba_str_field\": {\"type\": \"string\"}}, \"required\": [\"ba_int_field\", \"ba_str_field\"], \"additionalProperties\": false}",
+    "pods": [
+      {
+        "api_key": "key"
+      }
+    ],
+    "instruction_id": null
+  },
+  "dependsOn": [],
+  "input_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name"
+    }
+  ],
+  "output_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name"
+    }
+  ]
+}
+```
+
+#### OpenAPI Agent Step Type
+
+Step that sends requests to API. The OpenAPI fields are:
+
+- `kind`: Must be `sentius.kinds.agents.openapiagent`
+- `semantic_action`: OpenapiSemanticAction or OpenapiUploadSemanticAction schemas
+- `input_mapping`: List of OpenapiInputMapping schemas
+- `output_mapping`: List of Mapping schemas
+
+**OpenapiSemanticAction**
+- `semantic_action_type`: Must be `openapi`
+- `openapi_path`: Endpoint used in request
+- `outpu_schema`: Reference to OpenAPI chema name
+- `openapi_id`: Name of the OpenAPI schema defined in the pipeline
+
+**OpenapiUploadSemanticAction**
+- `semantic_action_type`: Must be `openapi.upload`
+- `openapi_path`: Endpoint used in request
+- `outpu_schema`: Reference to OpenAPI chema name
+- `openapi_id`: Name of the OpenAPI schema defined in the pipeline
+- `pods`: List of the Pod schemas that define on which instance of Browser Agent action should be executed
+
+**Pod**
+- `api_key`: Api key of the browser agent that should be used for step execution
+
+**OpenapiInputMapping**
+Note that input mapping of this step differs from the usual mapping.
+- `source`: What field of the context should we use as input to step
+- `target`: Name of the key, which uses `source` as value
+- `type`: Must be either `Sentius.Properties.Mappings.Http.Payload`, `Sentius.Properties.Mappings.Http.Header` or `Sentius.Properties.Mappings.Http.Param`.
+Values from the workflow run state will be used as payload fields, headers or params according to type values.
+
+**Mapping**
+- `source`: What field of the context should we use as input to step
+- `target`: Name of the key, which uses `source` as value
+
+#### OpenAPI Agent Example
+
+```json
+{
+  "id": "step_id",
+  "title": "Step Title",
+  "kind": "sentius.kinds.agents.openapiagent",
+  "description": "Step Description",
+  "semantic_action": {
+    "semantic_action_type": "openapi",
+    "openapi_path": "/endpoint",
+    "output_schema": "#/components/schemas/OutputSchema",
+    "openapi_id": "testserver_openapi"
+  },
+  "dependsOn": [],
+  "input_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name",
+      "type": null
+    }
+  ],
+  "output_mapping": [
+    {
+      "source": "$context$.field_name",
+      "target": "$input_schema$.field_name"
+    }
+  ]
+}
+```
+
+## Creating Workflows
 
 This section contains instruction requests to validate, submit and run workflows. 
 
