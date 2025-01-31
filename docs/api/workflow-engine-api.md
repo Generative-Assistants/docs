@@ -209,7 +209,7 @@ Used for requests to Sentius Browser Agent
 - `output_mapping`: List of Mapping schemas
 
 **Pod**
-- `api_key`: Api key of the browser agent that should be used for step execution
+- `target_user_api_key`: Api key of the browser agent that should be used for step execution
 
 **Mapping**
 - `source`: What field of the context should we use as input to step
@@ -229,7 +229,7 @@ Used for requests to Sentius Browser Agent
     "structured_output_schema": "{\"type\": \"object\", \"properties\": {\"ba_int_field\": {\"type\": \"integer\"}, \"ba_str_field\": {\"type\": \"string\"}}, \"required\": [\"ba_int_field\", \"ba_str_field\"], \"additionalProperties\": false}",
     "pods": [
       {
-        "api_key": "key"
+        "target_user_api_key": "key"
       }
     ],
     "instruction_id": null
@@ -273,7 +273,7 @@ Step that sends requests to API. The OpenAPI fields are:
 - `pods`: List of the Pod schemas that define on which instance of Browser Agent action should be executed
 
 **Pod**
-- `api_key`: Api key of the browser agent that should be used for step execution
+- `target_user_api_key`: Api key of the browser agent that should be used for step execution
 
 **OpenapiInputMapping**
 Note that input mapping of this step differs from the usual mapping.
@@ -487,7 +487,7 @@ async def upload_report(
         "instruction_template": "Download %filename% from my Google Drive",
         "pods": [
           {
-            "api_key": <YOUR_API_KEY>
+            "target_user_api_key": <TARGET_USER_API_KEY>
           }
         ],
         "instruction_id": "pejWSrhXPBSpUKn"
@@ -521,7 +521,7 @@ async def upload_report(
         "openapi_id": "upload_api",
         "pods": [
           {
-            "api_key": <YOUR_API_KEY>
+            "target_user_api_key": <TARGET_USER_API_KEY>
           }
         ]
       },
