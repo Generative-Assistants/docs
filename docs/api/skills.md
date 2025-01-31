@@ -74,6 +74,34 @@ To get all Skills, one can use the following code:
     ```
 
 
+## Copying Skills
+
+To copy Skill with ID `<skill_id>` from the current user to the user with ID `<target_user_id>`, one can use the following code: 
+
+=== "Curl"
+
+    ```bash
+    curl -X POST "https://api.example.com/tasks/instructions/<skill_id>/copy?api_key=<your_api_key>" \
+         -H "Content-Type: application/json" \
+         -d '{
+           "target_user_id": "<target_user_id>",
+           "target_organization_id": "<target_org_id>"
+         }'
+    ```
+
+=== "Python"
+
+    ```python
+    import requests
+    
+    url = f"https://api.example.com/tasks/instructions/<skill_id>/copy"
+    params = {"api_key": "<your_api_key>"} 
+    data = {"target_user_id": "<target_user_id>", "target_organization_id": <target_org_id>}
+    response = requests.post(url, params=params, json=data)
+    print(response.status_code)
+    ```
+
+
 ## Deleting Skills
 
 To delete Skill with ID `<skill_id>`, one can use the following code: 
