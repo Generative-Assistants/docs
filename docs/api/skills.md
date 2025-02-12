@@ -26,8 +26,9 @@ One can copy ID of the Skill by clicking on "..." button of the corresponding Sk
     ```
 
 If the requested task was known and agent utilized recorded instruction to execute the task, in the response one can find two boolean attributes:
-- `response.json()["attributes"]["temporary_attributes"]["replay_recorded_actions"]` -- whether recorded actions were replayed successfully;
-- `response.json()["attributes"]["temporary_attributes"]["generated_new_actions"]` -- whether Agent had to generate new actions in general mode to perform the task.
+
+* `response.json()["attributes"]["temporary_attributes"]["replay_recorded_actions"]` -- whether recorded actions were replayed successfully;
+* `response.json()["attributes"]["temporary_attributes"]["generated_new_actions"]` -- whether Agent had to generate new actions in general mode to perform the task.
 
 ## Retrieving Skills
 
