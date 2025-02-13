@@ -2,6 +2,49 @@
 
 This document describes how to create, configure and run Workflow Engine pipelines.
 
+## Context
+
+When Workflow Engine config is runned, it gets data from context, sends it to external APIs and saves responses from
+these APIs to context. For steps no highest level in config (steps are elements of `steps` list of WE config) `context` -
+is payload that you send to workflow. For example, if you send to WE run
+
+```json
+{
+  "x": 1
+}
+```
+
+This "x" could be referred in `input_mapping`s of steps as `$context$.x`.
+
+But if step is substep of loop (see example of loop below), context will be different.
+
+For example, let's say input is
+
+```json
+{
+  "high_level_key": {
+    "x": [
+      {
+        "y": 1
+      },
+      {
+        "y": 2
+      }
+    ]
+  },
+  "another_high_level_key": 42
+}
+```
+
+And in `loop` we set `self` as `high_level_key` and loop over `x`. In this case for every step in `sub_steps` of the
+`loop` context will be elements of the list. At first iteration context will be `{"y": 1}`, at second - `{"y": 2}`.
+
+In this case input mapping `source` should be `$context$.y`. If you need to use `another_high_level_key` value in
+the one of `sub_steps`, use `$parent$`: `$context$.$parent$.$parent$.another_high_level_key`. As we said, `{"y": 1}` is
+context, it is element of the list, so `$context$.$parent$` is a list. This list is the value of the key-value structure,
+so `$context$.$parent$.$parent$` will be structure with `high_level_key` and `another_high_level_key`.
+
+
 ## Workflow Schema Structure
 
 ### Core structure
@@ -209,7 +252,7 @@ Used for requests to Sentius Browser Agent
 - `output_mapping`: List of Mapping schemas
 
 **Pod**
-- `target_user_api_key`: Api key of the browser agent that should be used for step execution
+- `target_user_email`: Api email of the user whose Browser Agent should be used for step execution
 
 **Mapping**
 - `source`: What field of the context should we use as input to step
@@ -229,7 +272,7 @@ Used for requests to Sentius Browser Agent
     "structured_output_schema": "{\"type\": \"object\", \"properties\": {\"ba_int_field\": {\"type\": \"integer\"}, \"ba_str_field\": {\"type\": \"string\"}}, \"required\": [\"ba_int_field\", \"ba_str_field\"], \"additionalProperties\": false}",
     "pods": [
       {
-        "target_user_api_key": "key"
+        "target_user_email": "email"
       }
     ],
     "instruction_id": null
@@ -273,14 +316,15 @@ Step that sends requests to API. The OpenAPI fields are:
 - `pods`: List of the Pod schemas that define on which instance of Browser Agent action should be executed
 
 **Pod**
-- `target_user_api_key`: Api key of the browser agent that should be used for step execution
+- `target_user_email`: Api email of the user whose Browser Agent should be used for step execution
 
 **OpenapiInputMapping**
 Note that input mapping of this step differs from the usual mapping.
 - `source`: What field of the context should we use as input to step
 - `target`: Name of the key, which uses `source` as value
-- `type`: Must be either `Sentius.Properties.Mappings.Http.Payload`, `Sentius.Properties.Mappings.Http.Header` or `Sentius.Properties.Mappings.Http.Param`.
-Values from the workflow run state will be used as payload fields, headers or params according to type values.
+- `type`: Must be either `Sentius.Properties.Mappings.Http.Payload`, `Sentius.Properties.Mappings.Http.Header`,
+`Sentius.Properties.Mappings.Http.QueryParam` or `Sentius.Properties.Mappings.Http.PathParam`.
+Values from the workflow run state will be used as payload fields, headers, query params or path params according to type values.
 
 **Mapping**
 - `source`: What field of the context should we use as input to step
@@ -487,7 +531,7 @@ async def upload_report(
         "instruction_template": "Download %filename% from my Google Drive",
         "pods": [
           {
-            "target_user_api_key": <TARGET_USER_API_KEY>
+            "target_user_email": <TARGET_USER_EMAIL>
           }
         ],
         "instruction_id": "pejWSrhXPBSpUKn"
@@ -521,7 +565,7 @@ async def upload_report(
         "openapi_id": "upload_api",
         "pods": [
           {
-            "target_user_api_key": <TARGET_USER_API_KEY>
+            "target_user_email": <TARGET_USER_EMAIL>
           }
         ]
       },
