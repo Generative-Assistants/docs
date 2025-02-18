@@ -643,3 +643,20 @@ and it requires authorization.
     "isReady": false
 }
 ```
+
+## Cleaning queues
+
+When WE send requests to Browser Agent that don't connected to browser, it gets error, but messages are keeped in queue.
+To clean the messages use following request:
+
+```json
+curl -X 'POST' \
+  'https://api.sentius.ai/user/purge_queue?api_key=<YOUR_API_KEY>' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "target_user_email": "<TARGET_USER_EMAIL>"
+}'
+```
+
+`target_user_emain` in payload is optional. If it's not set, queue of API_KEY owner will be cleaned.
