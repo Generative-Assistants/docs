@@ -48,5 +48,6 @@ nav:
       - Overview: api/browser-agent-api.md
       - Dialog Sessions: api/dialog-sessions.md
       - Skills: api/skills.md
+      - Whitelist: api/whitelist.md
     - Workflow Engine:
       - Overview: api/workflow-engine-api.md
