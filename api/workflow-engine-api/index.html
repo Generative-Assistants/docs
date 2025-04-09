@@ -1,0 +1,2347 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.sentius.ai/api/workflow-engine-api/">
+      
+      
+        <link rel="prev" href="../whitelist/">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Overview - Sentius Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="light-blue" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#workflow-engine-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Sentius Docs" class="md-header__button md-logo" aria-label="Sentius Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sentius Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../quick-start/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quick Start
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../platform-components/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Platform Components
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Sentius Docs" class="md-nav__button md-logo" aria-label="Sentius Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sentius Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Platform Components
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Platform Components
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Agents
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Agents
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/agents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/agents/browser-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Browser Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/agents/openapi-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAPI Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/agents/prompt-agent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Prompt Agent
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Services
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/services/workflow-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Workflow Engine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Applications
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Applications
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/applications/sentius-copilot-plus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sentius Copilot+
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../platform-components/applications/sentius-studio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sentius Studio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    API
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Browser Agent
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Browser Agent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../browser-agent-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dialog-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dialog Sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Skills
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../whitelist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Whitelist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workflow Engine
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow Engine
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-schema-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Schema Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Schema Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAPI Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-configuration-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI configuration example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promptagent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      PromptAgent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promptagent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      PromptAgent Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browseragent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      BrowserAgent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-agent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser Agent Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-agent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Agent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-agent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Agent Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Workflows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-requisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating a workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitting-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submitting a workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-submitted-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using submitted workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Payload
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleaning queues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#context" class="md-nav__link">
+    <span class="md-ellipsis">
+      Context
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-schema-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Schema Structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow Schema Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core structure
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Required Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OpenAPI Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#openapi-configuration-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI configuration example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Input Schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step Types
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common Fields
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loop-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loop Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promptagent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      PromptAgent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#promptagent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      PromptAgent Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browseragent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      BrowserAgent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#browser-agent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Browser Agent Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-agent-step-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Agent Step Type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openapi-agent-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAPI Agent Example
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating Workflows
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-requisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pre-requisites
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validating-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Validating a workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#submitting-a-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Submitting a workflow
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-submitted-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using submitted workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#workflow-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Workflow Config
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#payload" class="md-nav__link">
+    <span class="md-ellipsis">
+      Payload
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cleaning queues
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="workflow-engine-api">Workflow Engine API</h1>
+<p>This document describes how to create, configure and run Workflow Engine pipelines.</p>
+<h2 id="context">Context</h2>
+<p>When Workflow Engine config is runned, it gets data from context, sends it to external APIs and saves responses from
+these APIs to context. For steps no highest level in config (steps are elements of <code>steps</code> list of WE config) <code>context</code> -
+is payload that you send to workflow. For example, if you send to WE run</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>This "x" could be referred in <code>input_mapping</code>s of steps as <code>$context$.x</code>.</p>
+<p>But if step is substep of loop (see example of loop below), context will be different.</p>
+<p>For example, let's say input is</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;high_level_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;x&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;y&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;another_high_level_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>And in <code>loop</code> we set <code>self</code> as <code>high_level_key</code> and loop over <code>x</code>. In this case for every step in <code>sub_steps</code> of the
+<code>loop</code> context will be elements of the list. At first iteration context will be <code>{"y": 1}</code>, at second - <code>{"y": 2}</code>.</p>
+<p>In this case input mapping <code>source</code> should be <code>$context$.y</code>. If you need to use <code>another_high_level_key</code> value in
+the one of <code>sub_steps</code>, use <code>$parent$</code>: <code>$context$.$parent$.$parent$.another_high_level_key</code>. As we said, <code>{"y": 1}</code> is
+context, it is element of the list, so <code>$context$.$parent$</code> is a list. This list is the value of the key-value structure,
+so <code>$context$.$parent$.$parent$</code> will be structure with <code>high_level_key</code> and <code>another_high_level_key</code>.</p>
+<h2 id="workflow-schema-structure">Workflow Schema Structure</h2>
+<h3 id="core-structure">Core structure</h3>
+<p>The Workflow configuration consists of these main components:</p>
+<ul>
+<li>Basic metadata (title, description, authors)</li>
+<li>OpenAPI specifications</li>
+<li>Input schema definition</li>
+<li>Workflow steps configuration</li>
+</ul>
+<h4 id="required-fields">Required Fields</h4>
+<ul>
+<li><code>sentius_workflow_engine_schema_version</code>: Must be '0.60'</li>
+<li><code>title</code>: Name of your workflow</li>
+<li><code>description</code>: Brief description of the workflow's purpose</li>
+<li><code>authors</code>: List of workflow authors</li>
+<li><code>openapi</code>: List of OpenAPI specifications</li>
+<li><code>input_schema</code>: Schema defining the expected input format</li>
+<li><code>steps</code>: Ordered list of workflow steps</li>
+</ul>
+<h4 id="configuration-example">Configuration Example</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sentius_workflow_engine_schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.60&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;City Information Workflow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Retrieves and processes city demographic information&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;authors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Doe, John Smith&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;openapi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;city_name\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;city_name\&quot;], \&quot;additionalProperties\&quot;: false}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="err">...</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="openapi-configuration">OpenAPI Configuration</h3>
+<p>OpenAPI specifications are used to define available API integrations. Each OpenAPI entry requires:</p>
+<ul>
+<li><code>id</code> - Unique identifier for referencing the API</li>
+<li><code>address</code> - URL to the OpenAPI specification</li>
+</ul>
+<h4 id="openapi-configuration-example">OpenAPI configuration example</h4>
+<p>This is an example of OpenAPI configuration for the local server using 8001 port.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;upload_api&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8001/openapi.json&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="input-schema">Input Schema</h3>
+<p>The input schema uses JSON Schema format to define the expected input structure. It supports:</p>
+<ul>
+<li>Property definitions</li>
+<li>Required field specifications</li>
+<li>Additional property controls</li>
+<li>Type validations</li>
+</ul>
+<p><strong>PAY ATTENTION</strong>: input schema should be in string format. Example is above in core section.</p>
+<h3 id="step-types">Step Types</h3>
+<h4 id="common-fields">Common Fields</h4>
+<p>Each step must have the following fields:</p>
+<ul>
+<li><code>id</code>: An unique name of the step</li>
+<li><code>title</code>: Step title</li>
+<li><code>kind</code>: Type of the step</li>
+<li><code>description</code>: Description of the step</li>
+<li><code>semantic_action</code>: Schema defining step actions</li>
+<li><code>dependsOn</code>: List of previous teps ids</li>
+</ul>
+<h4 id="loop-step-type">Loop Step Type</h4>
+<p>Used to loop over fields in workflow run context.</p>
+<ul>
+<li><code>kind</code>: Must be <code>sentius.kinds.agents.loop</code></li>
+<li><code>sub_steps</code>: List of the steps schemas that executed in loop</li>
+<li><code>semantic_action</code>: LoopSemanticAction schema</li>
+</ul>
+<p><strong>LoopSemanticAction</strong>:
+- <code>semantic_action_type</code>: Must be <code>loop</code>
+- <code>self</code>: Optional field, describing the field of the workflow run state, that should be used as context
+- <code>loop_over</code>: Field from the context that is used for iteration. Elements of this list will be contexts of sub_steps</p>
+<h4 id="loop-example">Loop Example</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step_id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.loop&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;loop&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;self&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;loop_over&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;field_to_loop_over&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;sub_steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step_id&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Title&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.openapiagent&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Description&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openapi&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;openapi_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/endpoint&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/components/schemas/OutputSchema&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;openapi_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testserver_openapi&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">      </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="promptagent-step-type">PromptAgent Step Type</h4>
+<p>Used to send requests to a LLM using structured json output mode of the LLM.</p>
+<ul>
+<li><code>kind</code>: Must be <code>sentius.kinds.agents.promptagent</code></li>
+<li><code>semantic_action</code>: PromptSemanticAction schema</li>
+<li><code>input_mapping</code>: List of Mapping schemas</li>
+<li><code>output_mapping</code>: List of Mapping schemas</li>
+</ul>
+<p><strong>PromptSemanticAction</strong>
+- <code>semantic_action_type</code>: Must be <code>prompt</code>
+- <code>system_prompt</code>: General prompt for LLM
+- <code>prompt</code>: Specific prompt to LLM that could be use values from the input mappings
+- <code>structured_output_schema</code>: The json schema of the expected output
+- <code>structured_output_schema_name</code>: Name of the output schema</p>
+<p><strong>Mapping</strong>
+- <code>source</code>: What field of the context should we use as input to step
+- <code>target</code>: Name of the key, which uses <code>source</code> as value</p>
+<h4 id="promptagent-example">PromptAgent Example</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step_id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.promptagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prompt&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;system_prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;You are a virtual agent that is an expert in geography.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;prompt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Your task is to transform Country name to capital. Input: country: %country%.&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;structured_output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;name\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;name\&quot;], \&quot;additionalProperties\&quot;: false}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;structured_output_schema_name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PromptOutput&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="browseragent-step-type">BrowserAgent Step Type</h4>
+<p>Used for requests to Sentius Browser Agent</p>
+<ul>
+<li><code>kind</code>: Must be <code>sentius.kinds.agents.browseragent</code></li>
+<li><code>semantic_action</code>: BrowserAgentSemanticAction schema</li>
+</ul>
+<p><strong>BrowserAgentSemanticAction</strong>
+- <code>semantic_action_type</code>: Must be <code>browseragent</code>
+- <code>instruction_template</code>: Request to Browser Agent on natural language
+- <code>structured_output_schema</code>: Schema of the expected output
+- <code>pods</code>: List of the Pod schemas that define on which instance of Browser Agent action should be executed
+- <code>instruction_id</code>: Optional field defining id of the instruction that should be used
+- <code>input_mapping</code>: List of Mapping schemas
+- <code>output_mapping</code>: List of Mapping schemas</p>
+<p><strong>Pod</strong>
+- <code>target_user_email</code>: Api email of the user whose Browser Agent should be used for step execution</p>
+<p><strong>Mapping</strong>
+- <code>source</code>: What field of the context should we use as input to step
+- <code>target</code>: Name of the key, which uses <code>source</code> as value</p>
+<h4 id="browser-agent-example">Browser Agent Example</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step_id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.browseragent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;browseragent&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;instruction_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Check the severe weather conditions for the itinerary using Sentius Browser Agent&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;structured_output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;ba_int_field\&quot;: {\&quot;type\&quot;: \&quot;integer\&quot;}, \&quot;ba_str_field\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;ba_int_field\&quot;, \&quot;ba_str_field\&quot;], \&quot;additionalProperties\&quot;: false}&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;pods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;target_user_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;instruction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="openapi-agent-step-type">OpenAPI Agent Step Type</h4>
+<p>Step that sends requests to API. The OpenAPI fields are:</p>
+<ul>
+<li><code>kind</code>: Must be <code>sentius.kinds.agents.openapiagent</code></li>
+<li><code>semantic_action</code>: OpenapiSemanticAction or OpenapiUploadSemanticAction schemas</li>
+<li><code>input_mapping</code>: List of OpenapiInputMapping schemas</li>
+<li><code>output_mapping</code>: List of Mapping schemas</li>
+</ul>
+<p><strong>OpenapiSemanticAction</strong>
+- <code>semantic_action_type</code>: Must be <code>openapi</code>
+- <code>openapi_path</code>: Endpoint used in request
+- <code>outpu_schema</code>: Reference to OpenAPI chema name
+- <code>openapi_id</code>: Name of the OpenAPI schema defined in the pipeline</p>
+<p><strong>OpenapiUploadSemanticAction</strong>
+- <code>semantic_action_type</code>: Must be <code>openapi.upload</code>
+- <code>openapi_path</code>: Endpoint used in request
+- <code>outpu_schema</code>: Reference to OpenAPI chema name
+- <code>openapi_id</code>: Name of the OpenAPI schema defined in the pipeline
+- <code>pods</code>: List of the Pod schemas that define on which instance of Browser Agent action should be executed</p>
+<p><strong>Pod</strong>
+- <code>target_user_email</code>: Api email of the user whose Browser Agent should be used for step execution</p>
+<p><strong>OpenapiInputMapping</strong>
+Note that input mapping of this step differs from the usual mapping.
+- <code>source</code>: What field of the context should we use as input to step
+- <code>target</code>: Name of the key, which uses <code>source</code> as value
+- <code>type</code>: Must be either <code>Sentius.Properties.Mappings.Http.Payload</code>, <code>Sentius.Properties.Mappings.Http.Header</code>,
+<code>Sentius.Properties.Mappings.Http.QueryParam</code> or <code>Sentius.Properties.Mappings.Http.PathParam</code>.
+Values from the workflow run state will be used as payload fields, headers, query params or path params according to type values.</p>
+<p><strong>Mapping</strong>
+- <code>source</code>: What field of the context should we use as input to step
+- <code>target</code>: Name of the key, which uses <code>source</code> as value</p>
+<h4 id="openapi-agent-example">OpenAPI Agent Example</h4>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;step_id&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Title&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.openapiagent&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Step Description&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openapi&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;openapi_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/endpoint&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/components/schemas/OutputSchema&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;openapi_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;testserver_openapi&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.field_name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.field_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="creating-workflows">Creating Workflows</h2>
+<p>This section contains instruction requests to validate, submit and run workflows. </p>
+<p>In the next Section Example, one may find an <strong>example of workflow configuration</strong>.</p>
+<h3 id="pre-requisites">Pre-requisites</h3>
+<p>We assume you have already created a dialog session and have an active session <code>dialog_session_id</code>. If not, please refer to the
+<a href="../dialog-sessions/">Dialog Sessions API</a> section.</p>
+<h3 id="validating-a-workflow">Validating a workflow</h3>
+<p>To check that created workflow structure is correct, run the following command:</p>
+<p>Curl</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="s1">&#39;https://api.sentius.ai/workflows/forward/validate&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-d<span class="w"> </span><span class="s1">&#39;&lt;YOUR_WORKFLOW_CONFIG&gt;&#39;</span>
+</code></pre></div>
+<p>Python</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.sentius.ai/workflows/forward/validate&quot;</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">json</span><span class="o">=&lt;</span><span class="n">YOUR_WORKFLOW_CONFIG</span><span class="o">&gt;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="submitting-a-workflow">Submitting a workflow</h3>
+<p>Before using workflow you must submit it to Sentius API. After submitting, you will need to save <code>id</code> field from the response - it will be
+used later in workflow inference.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="submitting-a-workflow-curl" name="__tabbed_1" type="radio" /><input id="submitting-a-workflow-python" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="submitting-a-workflow-curl">Curl</label><label for="submitting-a-workflow-python">Python</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.sentius.ai/workflows?api_key=&lt;YOUR_API_KEY&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+<span class="w">        </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;config&quot;: &lt;YOUR_WORKFLOW_CONFIG&gt;}&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<pre><code>```python
+import requests
+
+url = f"https://api.sentius.ai/workflows"
+params = {"api_key": "your_api_key"}
+response = requests.post(url, params=params, json={"config": &lt;YOUR_WORKFLOW_CONFIG&gt;})
+workflow_id = response.json()["id"]
+workflow_id
+```
+</code></pre>
+</div>
+</div>
+</div>
+<h3 id="using-submitted-workflow">Using submitted workflow</h3>
+<p>Running workflow is connected to the particular dialog session, workflow <code>id</code> and the input data for the workflow. 
+Input data must follow the input schema from the workflow configuration.
+To run workflow use the following command:</p>
+<p>Curl</p>
+<div class="highlight"><pre><span></span><code><span class="w">    </span>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span><span class="s2">&quot;https://api.sentius.ai/dialog_sessions/{dialog_session_id}/run_workflow?api_key=&lt;YOUR_API_KEY&gt;&amp;workflow_id=&lt;SAVED_WORKFLOW_ID&gt;&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">            </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+<span class="w">            </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">                &quot;data&quot;: &lt;YOUR_DATA&gt;</span>
+<span class="s1">            }&#39;</span>
+</code></pre></div>
+<p>Python</p>
+<div class="highlight"><pre><span></span><code>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://api.sentius.ai/dialog_sessions/</span><span class="si">{</span><span class="n">dialog_session_id</span><span class="si">}</span><span class="s2">/run_workflow&quot;</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;api_key&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;YOUR_API_KEY&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;workflow_id&quot;</span><span class="p">:</span> <span class="n">workflow_id</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">YOUR_DATA</span><span class="o">&gt;</span><span class="p">})</span>
+</code></pre></div>
+<h2 id="example">Example</h2>
+<p>Following workflow configuration runs two actions: it downloads the requested file from Google Drive, then uploads this file to the local server.
+To perform the second step, one should run the local server for file uploading, or replace it with custom server 
+(e.g., replace OpenAPI schema in workflow configuration).</p>
+<h3 id="server">Server</h3>
+<p>Create virtual environment, activate it and run <code>pip install uvicorn==0.34.0 fastapi==0.115.7 python-multipart==0.0.20</code>
+(requirements are written for Python 3.12).</p>
+<p>Save following code as <code>main.py</code> and start this mock server with <code>python -m uvicorn main:app --port=8001</code></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span><span class="p">,</span> <span class="n">File</span><span class="p">,</span> <span class="n">Form</span><span class="p">,</span> <span class="n">UploadFile</span><span class="p">,</span> <span class="n">Request</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/v1/reports/upload&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">201</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">upload_report</span><span class="p">(</span>
+        <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
+        <span class="n">file</span><span class="p">:</span> <span class="n">UploadFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+        <span class="n">accountId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+        <span class="n">fileName</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+        <span class="n">testId</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">),</span>
+        <span class="n">isReady</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Received file upload request&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;file_details&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span>
+            <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">size</span><span class="p">,</span>
+            <span class="s1">&#39;content_type&#39;</span><span class="p">:</span> <span class="n">file</span><span class="o">.</span><span class="n">content_type</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;metadata&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;account_id&#39;</span><span class="p">:</span> <span class="n">accountId</span><span class="p">,</span>
+            <span class="s1">&#39;file_name&#39;</span><span class="p">:</span> <span class="n">fileName</span><span class="p">,</span>
+            <span class="s1">&#39;test_id&#39;</span><span class="p">:</span> <span class="n">testId</span><span class="p">,</span>
+            <span class="s1">&#39;is_ready&#39;</span><span class="p">:</span> <span class="n">isReady</span><span class="p">,</span>
+            <span class="s1">&#39;authorization_header&#39;</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;authorization&#39;</span><span class="p">),</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h3 id="workflow-config">Workflow Config</h3>
+<p><strong>Don't forget to put your Sentius API key value instead of <code>&lt;YOUR_API_KEY&gt;</code> to this config before uploading.</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;sentius_workflow_engine_schema_version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.60&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File Processing Workflow&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;This is a workflow that downloads a file from Google Drive and uploads it to a server&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;authors&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Daniel Kornev, Fedor Ignatov&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;openapi&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;upload_api&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://localhost:8001/openapi.json&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">],</span>
+<span class="w">  </span><span class="nt">&quot;input_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;properties\&quot;: {\&quot;filename\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;fileKey\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;accountId\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;testId\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;Authorization\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;filename\&quot;, \&quot;fileKey\&quot;, \&quot;accountId\&quot;, \&quot;testId\&quot;, \&quot;Authorization\&quot;], \&quot;type\&quot;: \&quot;object\&quot;, \&quot;additionalProperties\&quot;: false}&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;download_file_from_google_drive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Download File from Google Drive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.browseragent&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Download file from my Google Drive&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;browseragent&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;structured_output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\&quot;properties\&quot;: {\&quot;text\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;timestamp\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;task\&quot;: {\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;id\&quot;: {\&quot;type\&quot;: \&quot;integer\&quot;}, \&quot;dialog_session_id\&quot;: {\&quot;type\&quot;: \&quot;integer\&quot;}, \&quot;text\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;agent_task_id\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;state\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;is_successful\&quot;: {\&quot;type\&quot;: \&quot;boolean\&quot;}, \&quot;date_created\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;date_finished\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;id\&quot;, \&quot;dialog_session_id\&quot;, \&quot;text\&quot;, \&quot;agent_task_id\&quot;, \&quot;state\&quot;, \&quot;date_created\&quot;, \&quot;date_finished\&quot;]}, \&quot;respond_buttons\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}, \&quot;task_duration_comment\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}, \&quot;attributes\&quot;: {\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;task_id\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;task_state\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;task_text\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;message_type\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;temporary_attributes\&quot;: {\&quot;type\&quot;: \&quot;object\&quot;, \&quot;properties\&quot;: {\&quot;downloadedFileName\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;downloadedFilePath\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}}, \&quot;required\&quot;: [\&quot;downloadedFileName\&quot;, \&quot;downloadedFilePath\&quot;]}, \&quot;finish_datetime\&quot;: {\&quot;type\&quot;: \&quot;string\&quot;}, \&quot;task_user_eval\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}, \&quot;respond_buttons\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}, \&quot;task_duration_comment\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}, \&quot;task_history_update\&quot;: {\&quot;type\&quot;: \&quot;null\&quot;}}, \&quot;required\&quot;: [\&quot;task_id\&quot;, \&quot;task_state\&quot;, \&quot;task_text\&quot;, \&quot;message_type\&quot;, \&quot;temporary_attributes\&quot;, \&quot;finish_datetime\&quot;]}}, \&quot;required\&quot;: [\&quot;text\&quot;, \&quot;timestamp\&quot;, \&quot;task\&quot;, \&quot;attributes\&quot;], \&quot;type\&quot;: \&quot;object\&quot;, \&quot;additionalProperties\&quot;: false}&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;instruction_template&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Download %filename% from my Google Drive&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;pods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;target_user_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;TARGET_USER_EMAIL&gt;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;instruction_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;pejWSrhXPBSpUKn&quot;</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.filename&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%filename%&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$output_schema$.attributes.temporary_attributes.downloadedFilePath&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.downloadedFilePath&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$output_schema$.attributes.temporary_attributes.downloadedFileName&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.downloadedFileName&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file_uploading&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File Uploading to Server&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Uploads file to a server given via OpenAPI schema&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;sentius.kinds.agents.openapiagent&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;semantic_action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;semantic_action_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openapi.upload&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;openapi_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/v1/reports/upload&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;output_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;#/definitions/ReportDocument&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;openapi_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;upload_api&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;pods&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">          </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;target_user_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;TARGET_USER_EMAIL&gt;</span>
+<span class="w">          </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">      </span><span class="p">},</span>
+<span class="w">      </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;download_file_from_google_drive&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;input_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.downloadedFileName&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.fileName&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sentius.Properties.Mappings.Http.Payload&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.accountId&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.accountId&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sentius.Properties.Mappings.Http.Payload&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.testId&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.testId&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sentius.Properties.Mappings.Http.Payload&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.isReady&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.isReady&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sentius.Properties.Mappings.Http.Payload&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.downloadedFileName&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.fileName&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.downloadedFilePath&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.filePath&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.fileKey&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.fileKey&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.Authorization&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$input_schema$.Authorization&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Sentius.Properties.Mappings.Http.Header&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;output_mapping&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">          </span><span class="nt">&quot;source&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$output_schema$&quot;</span><span class="p">,</span>
+<span class="w">          </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;$context$.reportDocument&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="payload">Payload</h3>
+<p>Use following data to run workflow.</p>
+<p><strong>Don't forget to change filename value</strong>. Make sure you have this file on Google Drive 
+(if the extension of the file is invisible on Google Drive, write the filename without the extension).
+Do not change <code>accountId</code>, <code>testId</code>, <code>isReady</code>. 
+Change <code>Authorization</code> to the authorization token if you change the local server for data uploading to a custom one, 
+and it requires authorization.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;FILE NAME FROM GOOGLE DRIVE&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;fileKey&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;accountId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account_id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;testId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;test_id&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;Authorization&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Bearer &lt;token&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;isReady&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="cleaning-queues">Cleaning queues</h2>
+<p>When WE send requests to Browser Agent that don't connected to browser, it gets error, but messages are keeped in queue.
+To clean the messages use following request:</p>
+<div class="highlight"><pre><span></span><code><span class="err">curl</span><span class="w"> </span><span class="mi">-</span><span class="err">X</span><span class="w"> </span><span class="err">&#39;POST&#39;</span><span class="w"> </span><span class="err">\</span>
+<span class="w">  </span><span class="err">&#39;h</span><span class="kc">tt</span><span class="err">ps</span><span class="p">:</span><span class="c1">//api.sentius.ai/user/purge_queue?api_key=&lt;YOUR_API_KEY&gt;&#39; \</span>
+<span class="w">  </span><span class="mi">-</span><span class="err">H</span><span class="w"> </span><span class="err">&#39;accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span><span class="w"> </span><span class="err">\</span>
+<span class="w">  </span><span class="mi">-</span><span class="err">H</span><span class="w"> </span><span class="err">&#39;Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">&#39;</span><span class="w"> </span><span class="err">\</span>
+<span class="w">  </span><span class="mi">-</span><span class="err">d</span><span class="w"> </span><span class="err">&#39;</span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;target_user_email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;TARGET_USER_EMAIL&gt;&quot;</span>
+<span class="p">}</span><span class="err">&#39;</span>
+</code></pre></div>
+<p><code>target_user_emain</code> in payload is optional. If it's not set, queue of API_KEY owner will be cleaned.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
