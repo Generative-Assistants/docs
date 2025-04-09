@@ -120,3 +120,24 @@ To delete Skill with ID `<skill_id>`, one can use the following code:
     response = requests.delete(url, params=params)
     print(response.status_code)
     ```
+
+
+## Editing Skills
+
+**Attention! Irreversible effect! If you replace instruction, you can not reverse it back!**
+
+If you want to modify your personal instruction, it is recommended to first get all personal instructions using 
+`"/instructions"` endpoint, select and save locally the instruction of interest, modify it as needed and then update
+saved instruction using the following code that replaces
+skill with ID `<skill_id>` within the new instruction dictionary `<instruction>`: 
+
+=== "Python"
+
+    ```python
+    import requests
+    
+    url = f"https://api.example.com/tasks/instructions/<skill_id>"
+    params = {"api_key": "<your_api_key>"}
+    response = requests.put(url, params=params, json=<instruction>)
+    print(response.status_code)
+    ```
